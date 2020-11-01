@@ -8,6 +8,8 @@
 
 It's trivia game night. Put on your thinking caps and flex your knowledge by taking this quiz.
 
+You can play the game by following this [quiz game app link](https://lucid-shirley-4b9a5f.netlify.app/)
+
 ## How to run and install
 
 1. Clone repo ``git clone git@github.com:zaynaib/devmynd_test.git``
