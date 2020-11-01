@@ -18,7 +18,8 @@ module.exports = {
             plugins: ['@babel/plugin-proposal-object-rest-spread']
           }
         }
-      }
-    ]
+      }// end of babel rules
+   
+    ] //end of rules
   }
 };

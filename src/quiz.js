@@ -1,11 +1,22 @@
 //https://stackoverflow.com/questions/49836912/how-can-i-call-event-from-webpack-bundle-if-event-written-in-html-file
 //https://stackoverflow.com/questions/35781579/basic-webpack-notjav-working-for-button-click-function-uncaught-reference-error
 //npm run build
+//https://blog.jakoblind.no/css-modules-webpack/
+//https://www.digitalocean.com/community/tutorials/js-classlist
 
 import $ from "jquery";
 
 //import * as data from './data.json';
 const data = require("./data.json");
+let points = 0;
+
+function getPoints(){
+  return points;
+}
+
+function updatePoints(){
+  points += 1;
+}
 
 function renderQuestion(question){
   //create div element for question
@@ -58,27 +69,25 @@ function renderQuestion(question){
 
 function uclicked() {
   // do something
-  console.log('hi')
-  var x = this.getAttribute('value');
-  console.log(x);
-  console.log(this.classList.value)
   if(this.classList.value){
     console.log('plus one')
+    //points +=1;
+    updatePoints();
   }
+  //console.log(points)
+  console.log(getPoints())
 }
 window.uclicked = uclicked;
 
 function setup(d){
+
   
   console.log(d)
   d.forEach(ele => {renderQuestion(ele)});
 
-  
-
-
-
   //console.log(d[0])
 }
+
 
 // function setup(d){
 //   var myElement = renderQuestion(d[0]);
@@ -88,4 +97,4 @@ function setup(d){
 
 var results = setup(data)
 
-export {data,results};
+export {data,results,points};
