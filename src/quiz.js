@@ -85,8 +85,8 @@ function uclicked() {
 window.uclicked = uclicked;
 
 // question each question in the dom
-function setup(d){
-  d.forEach(ele => {renderQuestion(ele)});
+function setup(jsonData){
+  jsonData.forEach(ele => {renderQuestion(ele)});
 
 }
 
