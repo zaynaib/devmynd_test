@@ -5,9 +5,8 @@
 //https://www.digitalocean.com/community/tutorials/js-classlist
 
 import $ from "jquery";
-
-//import * as data from './data.json';
 const data = require("./data.json");
+
 let points = 0;
 
 function getPoints(){
@@ -16,8 +15,6 @@ function getPoints(){
 
 function updatePoints(){
   points += 1;
-  //document.getElementById("game-points").innerHTML(`${points}`);
-
 }
 
 function renderQuestion(question){
@@ -70,28 +67,16 @@ function renderQuestion(question){
 }
 
 function uclicked() {
-  // do something
+
   if(this.classList.value){
    
     updatePoints();
-    let elePoints = document.getElementById("game-points")//.innerHTML(`${points}`);
-    elePoints.innerHTML = `Your Score is ${points}`;
-    console.log(elePoints)
-    elePoints.classList.add("correct-answer");
-    console.log($(this).val())
-    console.log($(this).next())
-    console.log($(this).next().get())
-    console.log($(this).next().get(0))
-
-   let answerLabel = $(this).next().get(0);
-   answerLabel.classList.add("correct-answer");
-
-
-
-    //console.log(document.querySelector(`${this}`),"apple")
+    let elePoints = document.getElementById("game-points").innerHTML = `Your Score is ${points}`;
+    let answerLabel = $(this).next().get(0);
+    answerLabel.classList.add("correct-answer");
   }
   else{
-  let answerLabel = $(this).next().get(0);
+  let answerLabel = $(this).next()[0];
   answerLabel.classList.add("wrong-answer");
   }
 
@@ -99,7 +84,6 @@ function uclicked() {
 window.uclicked = uclicked;
 
 function setup(d){
-
 
   d.forEach(ele => {renderQuestion(ele)});
 
