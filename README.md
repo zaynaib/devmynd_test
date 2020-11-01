@@ -2,7 +2,9 @@
 
 ## Tandem Code Challenge
 
-![](https://media.giphy.com/media/xT5LMdependenciesdependenciesdependencies)
+![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+
+
 
 It's trivia game night. Put on your thinking caps and flex your knowledge by taking this quiz.
 
@@ -20,6 +22,9 @@ It's trivia game night. Put on your thinking caps and flex your knowledge by tak
 * A user can select only 1 answer out of the 4 possible answers.
 * The correct answer must be revealed after a user has submitted their answer
 * A user can see the score they received at the end of the round
+
+## Demo
+![](QuizDemo.gif)
 
 ## To Do  List:
 
