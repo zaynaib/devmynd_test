@@ -17,14 +17,14 @@ function updatePoints(){
 
 //creates + appends html elements for each question in data.json
 function renderQuestion(question){
-  //create div element for question
-  const element = document.createElement('div');
-  element.innerHTML =(`<h2>${question.question}</h2>`);
-
 
   //create form for questions
   const form = document.createElement('div');
-  element.appendChild(form);
+  document.body.appendChild(form);
+
+  //create div element for question
+  const element = document.createElement('div');
+  element.innerHTML =(`<h2>${question.question}</h2>`);
 
   //loop through each incorrect answer add event listener, label,input attributes
   question.incorrect.forEach(q => {
@@ -87,6 +87,9 @@ window.uclicked = uclicked;
 
 // question each question in the dom
 function setup(d){
+  //console.log(d[0])
+  // renderQuestion(d[0])
+  $("body").empty();
 
   d.forEach(ele => {renderQuestion(ele)});
 
