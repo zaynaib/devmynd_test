@@ -1,9 +1,3 @@
-//https://stackoverflow.com/questions/49836912/how-can-i-call-event-from-webpack-bundle-if-event-written-in-html-file
-//https://stackoverflow.com/questions/35781579/basic-webpack-notjav-working-for-button-click-function-uncaught-reference-error
-//npm run build
-//https://blog.jakoblind.no/css-modules-webpack/
-//https://www.digitalocean.com/community/tutorials/js-classlist
-
 import $ from "jquery";
 const data = require("./data.json");
 
@@ -87,6 +81,5 @@ function setup(d){
 }
 
 
-// var results = setup(data)
 
 export {data,setup};
