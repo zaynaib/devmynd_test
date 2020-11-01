@@ -17,6 +17,23 @@ function updatePoints(){
   points += 1;
 }
 
+function createQuestions(triviaQuestion,formElement,questionEvent){
+  var input = document.createElement('input');
+  input.addEventListener('click',questionEvent);
+
+  var label = document.createElement('label');
+  label.innerHTML = (`${triviaQuestion}<br>`)
+  
+
+  input.setAttribute('type', 'radio');
+  input.setAttribute('value',`${triviaQuestion}`);
+
+  //add each label and input to the form
+  formElement.appendChild(input);
+  formElement.appendChild(label);
+
+}
+
 //creates + appends html elements for each question in data.json
 function renderQuestion(question){
 
@@ -30,19 +47,8 @@ function renderQuestion(question){
 
   //loop through each incorrect answer add event listener, label,input attributes
   question.incorrect.forEach(q => {
-    var input = document.createElement('input');
-    input.addEventListener('click',uclicked);
+    createQuestions(q,form,uclicked)
 
-    var label = document.createElement('label');
-    label.innerHTML = (`${q}<br>`)
-    
-
-    input.setAttribute('type', 'radio');
-    input.setAttribute('value',`${q}`);
-
-    //add each label and input to the form
-    form.appendChild(input);
-    form.appendChild(label)
   });
 
 
