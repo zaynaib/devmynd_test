@@ -60,10 +60,11 @@ function uclicked() {
   // do something
   console.log('hi')
   var x = this.getAttribute('value');
-  console.log(x)
-  // if(this.classList.correct){
-  //   console.log('plus one')
-  // }
+  console.log(x);
+  console.log(this.classList.value)
+  if(this.classList.value){
+    console.log('plus one')
+  }
 }
 window.uclicked = uclicked;
 
