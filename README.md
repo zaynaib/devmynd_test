@@ -26,7 +26,7 @@ You can play the game by following this [quiz game app link](https://lucid-shirl
 * A user can see the score they received at the end of the round
 
 ## Demo
-![quiz demo](QuizDemo.gif)
+![quiz demo](./QuizDemo.gif)
 
 ## To Do  List:
 
