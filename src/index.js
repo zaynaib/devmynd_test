@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import {hello,data, results,renderQuestion} from "./quiz";
+import {hello,data, results} from "./quiz";
 //https://stackoverflow.com/questions/27079598/error-failed-to-execute-appendchild-on-node-parameter-1-is-not-of-type-no
 
 
@@ -15,6 +15,6 @@ function component() {
   }
   
   document.body.appendChild(component());
-  document.body.appendChild(results);
+  //document.body.appendChild(results);
   console.log(hello());
-  // console.log(results)
+  console.log(results)

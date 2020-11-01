@@ -1,6 +1,8 @@
 import $ from "jquery";
 
-import * as data from './data.json';
+//import * as data from './data.json';
+const data = require("./data.json");
+
 
 
 function hello() {
@@ -50,17 +52,32 @@ function renderQuestion(question){
 
 
   console.log(form)
+  element.appendChild(form)
 
-  return element;
+  document.body.appendChild(element);
 
+  //return element;
+
+}
+
+function checkAnswer(){
+  // if checked is of class correct add point to user
 }
 
 function setup(d){
-  var myElement = renderQuestion(d[0]);
-  console.log(myElement)
-  return myElement;
+  console.log(d)
+  d.forEach(ele => renderQuestion(ele))
+
+
+  //console.log(d[0])
 }
+
+// function setup(d){
+//   var myElement = renderQuestion(d[0]);
+//   console.log(myElement)
+//   return myElement;
+// }
 
 var results = setup(data)
 
-export {hello,data,results,renderQuestion};
+export {hello,data,results};
