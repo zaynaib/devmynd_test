@@ -72,18 +72,20 @@ function renderQuestion(question){
 function uclicked() {
   // do something
   if(this.classList.value){
-    console.log('plus one')
-    //points +=1;
+   
     updatePoints();
     let elePoints = document.getElementById("game-points")//.innerHTML(`${points}`);
     elePoints.innerHTML = `Your Score is ${points}`;
     elePoints.classList.add("correct-answer");
+    console.log($(this).val())
+    console.log($(this).next())
+    console.log($(this).next().get())
+    console.log($(this).next().get(0))
 
-    console.log(elePoints)
 
+
+    //console.log(document.querySelector(`${this}`),"apple")
   }
-  //console.log(points)
-  console.log(getPoints())
 }
 window.uclicked = uclicked;
 
@@ -94,12 +96,6 @@ function setup(d){
 
 }
 
-
-// function setup(d){
-//   var myElement = renderQuestion(d[0]);
-//   console.log(myElement)
-//   return myElement;
-// }
 
 var results = setup(data)
 
