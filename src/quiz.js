@@ -1,5 +1,6 @@
 //https://stackoverflow.com/questions/49836912/how-can-i-call-event-from-webpack-bundle-if-event-written-in-html-file
 //https://stackoverflow.com/questions/35781579/basic-webpack-notjav-working-for-button-click-function-uncaught-reference-error
+//npm run build
 
 import $ from "jquery";
 
@@ -58,6 +59,11 @@ function renderQuestion(question){
 function uclicked() {
   // do something
   console.log('hi')
+  var x = this.getAttribute('value');
+  console.log(x)
+  // if(this.classList.correct){
+  //   console.log('plus one')
+  // }
 }
 window.uclicked = uclicked;
 
