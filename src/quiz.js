@@ -2,6 +2,8 @@
 import $ from "jquery";
 const data = require("./data.json");
 
+//https://stackoverflow.com/questions/46270587/webpack-dev-server-runs-twice/46478898
+
 //property: keep track of users points
 let points = 0;
 
