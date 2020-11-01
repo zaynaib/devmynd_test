@@ -38,6 +38,8 @@ function createQuestions(triviaQuestion,formElement,questionEvent){
 
 //creates + appends html elements for each question in data.json
 function renderQuestion(question){
+  let groupNumber = 0;
+  let groupName = `group${groupNumber}`;
 
   //create form for questions
   const form = document.createElement('div');
@@ -49,13 +51,18 @@ function renderQuestion(question){
 
   //loop through each incorrect answer add event listener, label,input attributes
   question.incorrect.forEach(q => {
-    createQuestions(q,form,uclicked)
+    let incorrectInput = createQuestions(q,form,uclicked);
+    incorrectInput.setAttribute("name",groupName)
 
   });
 
   //correct questions
   let input = createQuestions(question.correct,form,uclicked);
+  input.setAttribute("name",groupName);
   input.classList.add("correct");
+  
+
+  groupNumber +=1;
 
   //append last question
   element.appendChild(form);
