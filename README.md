@@ -1,15 +1,29 @@
-# ReadMe first! 
+# ReadMe
 
-This is a JavaScript quiz!
+## Tandem Code Challenge
+
+![](https://media.giphy.com/media/xT5LMdependenciesdependenciesdependencies)
+
+It's trivia game night. Put on your thinking caps and flex your knowledge by taking this quiz.
 
 ## How to run and install
 
-Clone repo
+1. Clone repo ``git clone git@github.com:zaynaib/devmynd_test.git``
+2. Install npm dependencies ``npm install``
+3. Navigate to **dist** run your development server. I prefer to use [live-server](https://www.npmjs.com/package/live-server)
 
-``npm install`` to install all dependinces 
-With a server navigate to dist folder and run your server there
+## Project Requirements
 
-To Do Bugs List:
-Make sure user can click only on radio button at a time
-Make sure user can click a radio button once
-Add better css styles
+* A user can view questions.
+* Questions with their multiple choice options must be displayed one at a time.
+* Questions should not repeat in a round.
+* A user can select only 1 answer out of the 4 possible answers.
+* The correct answer must be revealed after a user has submitted their answer
+* A user can see the score they received at the end of the round
+
+## To Do  List:
+
+- [x] Make sure user can click only on radio button at a time
+- [ ] Add better css styles 
+- [ ] Make sure game meets accessiblity standards
+- [ ] Add noise file if user gets questions right or wrong 
