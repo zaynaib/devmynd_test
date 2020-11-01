@@ -76,11 +76,15 @@ function uclicked() {
     updatePoints();
     let elePoints = document.getElementById("game-points")//.innerHTML(`${points}`);
     elePoints.innerHTML = `Your Score is ${points}`;
+    console.log(elePoints)
     elePoints.classList.add("correct-answer");
     console.log($(this).val())
     console.log($(this).next())
     console.log($(this).next().get())
     console.log($(this).next().get(0))
+
+   let answerLabel = $(this).next().get(0);
+   answerLabel.classList.add("correct-answer")
 
 
 
