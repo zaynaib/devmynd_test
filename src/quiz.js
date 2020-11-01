@@ -1,15 +1,10 @@
+//https://stackoverflow.com/questions/49836912/how-can-i-call-event-from-webpack-bundle-if-event-written-in-html-file
+//https://stackoverflow.com/questions/35781579/basic-webpack-notjav-working-for-button-click-function-uncaught-reference-error
+
 import $ from "jquery";
 
 //import * as data from './data.json';
 const data = require("./data.json");
-
-
-
-function hello() {
-    return 'hello, this is Ola'
-  }
-
-
 
 function renderQuestion(question){
   //create div element for question
@@ -21,12 +16,10 @@ function renderQuestion(question){
   const form = document.createElement('form');
   element.appendChild(form);
 
-
-  //<input type="radio" id="male" name="gender" value="male">
-
-
   question.incorrect.forEach(q => {
     var input = document.createElement('input');
+    input.addEventListener('click',uclicked);
+
     var label = document.createElement('label');
     label.innerHTML = (`${q}<br>`)
     console.log(input);
@@ -40,10 +33,12 @@ function renderQuestion(question){
 
 
   var input = document.createElement('input');
+  input.addEventListener('click',uclicked);
   var label = document.createElement('label');
   label.innerHTML = (`${question.correct}<br>`);
   input.setAttribute('type', 'radio');
   input.setAttribute('value',`${question.correct}`);
+  
   input.classList.add("correct");
 
   form.appendChild(input);
@@ -60,13 +55,19 @@ function renderQuestion(question){
 
 }
 
-function checkAnswer(){
-  // if checked is of class correct add point to user
+function uclicked() {
+  // do something
+  console.log('hi')
 }
+window.uclicked = uclicked;
 
 function setup(d){
+  
   console.log(d)
-  d.forEach(ele => renderQuestion(ele))
+  d.forEach(ele => {renderQuestion(ele)});
+
+  
+
 
 
   //console.log(d[0])
@@ -80,4 +81,4 @@ function setup(d){
 
 var results = setup(data)
 
-export {hello,data,results};
+export {data,results};
