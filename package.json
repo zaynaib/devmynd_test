@@ -1,11 +1,11 @@
 {
   "name": "test",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a JavaScript quiz!",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
   },
   "keywords": [],
   "author": "",
@@ -16,12 +16,20 @@
     "babel-loader": "^8.1.0",
     "css-loader": "^5.0.0",
     "html-webpack-plugin": "^4.5.0",
-    "webpack": "^5.3.2",
     "webpack-cli": "^4.1.0"
   },
   "dependencies": {
     "jquery": "^3.5.1",
     "lodash": "^4.17.20",
     "style-loader": "^2.0.0"
-  }
+  },
+  "main": "webpack.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zaynaib/devmynd_test.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zaynaib/devmynd_test/issues"
+  },
+  "homepage": "https://github.com/zaynaib/devmynd_test#readme"
 }

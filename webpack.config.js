@@ -33,6 +33,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve('./dist/index.html'),
+      inject: false,
+
     }),
   ]
 };

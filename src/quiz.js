@@ -89,7 +89,7 @@ window.uclicked = uclicked;
 function setup(d){
   //console.log(d[0])
   // renderQuestion(d[0])
-  $("body").empty();
+  //$("body").empty();
 
   d.forEach(ele => {renderQuestion(ele)});
 
