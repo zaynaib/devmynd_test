@@ -33,8 +33,7 @@ function renderQuestion(question){
 
     var label = document.createElement('label');
     label.innerHTML = (`${q}<br>`)
-    console.log(input);
-    console.log(label);
+    
 
     input.setAttribute('type', 'radio');
     input.setAttribute('value',`${q}`);
@@ -57,12 +56,10 @@ function renderQuestion(question){
 
 
 
-  console.log(form)
   element.appendChild(form)
 
   document.body.appendChild(element);
 
-  //return element;
 
 }
 
