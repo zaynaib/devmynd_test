@@ -87,6 +87,6 @@ function setup(d){
 }
 
 
-var results = setup(data)
+// var results = setup(data)
 
-export {data,results,points};
+export {data,setup};

@@ -1,7 +1,8 @@
 import _ from 'lodash';
-import {data, results,points} from "./quiz";
+import {data,setup} from "./quiz";
 import "./style.css"
 
+setup(data)
 
 
   
