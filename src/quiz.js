@@ -16,6 +16,8 @@ function getPoints(){
 
 function updatePoints(){
   points += 1;
+  //document.getElementById("game-points").innerHTML(`${points}`);
+
 }
 
 function renderQuestion(question){
@@ -73,6 +75,10 @@ function uclicked() {
     console.log('plus one')
     //points +=1;
     updatePoints();
+    let elePoints = document.getElementById("game-points")//.innerHTML(`${points}`);
+    elePoints.innerHTML = `${points}`;
+    console.log(elePoints)
+
   }
   //console.log(points)
   console.log(getPoints())
@@ -81,11 +87,9 @@ window.uclicked = uclicked;
 
 function setup(d){
 
-  
-  console.log(d)
+
   d.forEach(ele => {renderQuestion(ele)});
 
-  //console.log(d[0])
 }
 
 
