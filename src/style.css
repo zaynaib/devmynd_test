@@ -1,11 +1,17 @@
 body {
-    background-color: purple;
+    background-color: #e3f2fd;
   }
 
   .correct-answer{
-      color:green;
+      color:#388e3c ;
   }
 
   .wrong-answer{
-      color:red;
+      color:#b71c1c;
+  }
+
+  @font-face{
+    src: url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+    font-family: 'Open Sans', sans-serif;
+
   }
