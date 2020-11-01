@@ -84,12 +84,17 @@ function uclicked() {
     console.log($(this).next().get(0))
 
    let answerLabel = $(this).next().get(0);
-   answerLabel.classList.add("correct-answer")
+   answerLabel.classList.add("correct-answer");
 
 
 
     //console.log(document.querySelector(`${this}`),"apple")
   }
+  else{
+  let answerLabel = $(this).next().get(0);
+  answerLabel.classList.add("wrong-answer");
+  }
+
 }
 window.uclicked = uclicked;
 
