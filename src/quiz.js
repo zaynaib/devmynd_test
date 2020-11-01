@@ -32,6 +32,8 @@ function createQuestions(triviaQuestion,formElement,questionEvent){
   formElement.appendChild(input);
   formElement.appendChild(label);
 
+  return input;
+
 }
 
 //creates + appends html elements for each question in data.json
@@ -51,23 +53,12 @@ function renderQuestion(question){
 
   });
 
-
-  var input = document.createElement('input');
-  input.addEventListener('click',uclicked);
-  var label = document.createElement('label');
-  label.innerHTML = (`${question.correct}<br>`);
-  input.setAttribute('type', 'radio');
-  input.setAttribute('value',`${question.correct}`);
-  
+  //correct questions
+  let input = createQuestions(question.correct,form,uclicked);
   input.classList.add("correct");
 
-  form.appendChild(input);
-  form.appendChild(label)
-
-
-
-  element.appendChild(form)
-
+  //append last question
+  element.appendChild(form);
   document.body.appendChild(element);
 
 
@@ -95,10 +86,6 @@ window.uclicked = uclicked;
 
 // question each question in the dom
 function setup(d){
-  //console.log(d[0])
-  // renderQuestion(d[0])
-  //$("body").empty();
-
   d.forEach(ele => {renderQuestion(ele)});
 
 }
