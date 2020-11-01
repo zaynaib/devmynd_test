@@ -1,16 +1,21 @@
+//setup dependices
 import $ from "jquery";
 const data = require("./data.json");
 
+//property: keep track of users points
 let points = 0;
 
+//getter for points property
 function getPoints(){
   return points;
 }
 
+//setter for points property
 function updatePoints(){
   points += 1;
 }
 
+//creates + appends html elements for each question in data.json
 function renderQuestion(question){
   //create div element for question
   const element = document.createElement('div');
@@ -18,9 +23,10 @@ function renderQuestion(question){
 
 
   //create form for questions
-  const form = document.createElement('form');
+  const form = document.createElement('div');
   element.appendChild(form);
 
+  //loop through each incorrect answer add event listener, label,input attributes
   question.incorrect.forEach(q => {
     var input = document.createElement('input');
     input.addEventListener('click',uclicked);
@@ -31,6 +37,8 @@ function renderQuestion(question){
 
     input.setAttribute('type', 'radio');
     input.setAttribute('value',`${q}`);
+
+    //add each label and input to the form
     form.appendChild(input);
     form.appendChild(label)
   });
@@ -57,6 +65,7 @@ function renderQuestion(question){
 
 }
 
+// click function for each answer keeps tracks of points and css styles to signify to the user if choice is right or wrong
 function uclicked() {
 
   if(this.classList.value){
@@ -67,13 +76,16 @@ function uclicked() {
     answerLabel.classList.add("correct-answer");
   }
   else{
-  let answerLabel = $(this).next()[0];
-  answerLabel.classList.add("wrong-answer");
+    let answerLabel = $(this).next()[0];
+    answerLabel.classList.add("wrong-answer");
   }
 
 }
+
+//uclicked function to be in the global scope
 window.uclicked = uclicked;
 
+// question each question in the dom
 function setup(d){
 
   d.forEach(ele => {renderQuestion(ele)});
