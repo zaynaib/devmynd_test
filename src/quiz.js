@@ -15,6 +15,26 @@ function updatePoints(){
   points += 1;
 }
 
+function createQuestionElement(triviaQuestion,quizEvent,quizForm){
+  // const random_int = Math.floor(Math.random()*10);
+  var input = document.createElement('input');
+  input.addEventListener('click',quizEvent);
+
+  var label = document.createElement('label');
+  label.innerHTML = (`${triviaQuestion}<br>`)
+  
+
+  input.setAttribute('type', 'radio');
+  // input.setAttribute('name', 'trivia' + random_int);
+  input.setAttribute('value',`${triviaQuestion}`);
+
+  //add each label and input to the form
+  //quizForm.appendChild(input);
+  //quizForm.appendChild(label);
+
+  return input;
+
+}
 //creates + appends html elements for each question in data.json
 function renderQuestion(question){
   //create div element for question
@@ -38,9 +58,9 @@ function renderQuestion(question){
     input.setAttribute('type', 'radio');
     input.setAttribute('value',`${q}`);
 
-    //add each label and input to the form
-    form.appendChild(input);
-    form.appendChild(label)
+    // //add each label and input to the form
+    // form.appendChild(input);
+    // form.appendChild(label)
   });
 
 
@@ -60,10 +80,10 @@ function renderQuestion(question){
 
   element.appendChild(form)
 
-  document.body.appendChild(element);
 
 
 }
+
 
 // click function for each answer keeps tracks of points and css styles to signify to the user if choice is right or wrong
 function uclicked() {
