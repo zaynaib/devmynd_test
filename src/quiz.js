@@ -76,7 +76,7 @@ function uclicked() {
     //points +=1;
     updatePoints();
     let elePoints = document.getElementById("game-points")//.innerHTML(`${points}`);
-    elePoints.innerHTML = `${points}`;
+    elePoints.innerHTML = `Your Score is ${points}`;
     console.log(elePoints)
 
   }
