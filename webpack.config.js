@@ -1,15 +1,19 @@
-const path = require('path');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: './src/index.js',
+  mode: "development",
+  devtool: "source-map",
+  watch: true,
+  entry: "./src/index.js",
   output: {
-    filename: 'main.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: "index.js",
+    path: path.resolve(__dirname, "dist")
   },
   devServer: {
-    contentBase: "./build",
+    contentBase: path.join(__dirname, "dist"),
+    compress: true,
+    port: 3000
   },
   module: {
     rules: [
@@ -17,24 +21,18 @@ module.exports = {
         test: /\.m?js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env'],
-            plugins: ['@babel/plugin-proposal-object-rest-spread']
+            presets: ["@babel/preset-env"],
+            plugins: ["@babel/plugin-proposal-object-rest-spread"]
           }
         }
       },
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"]
       }
     ]
   },
-  // plugins: [
-  //   new HtmlWebpackPlugin({
-  //     template: path.resolve('./dist/index.html'),
-  //     inject: false,
-
-  //   }),
-  // ]
+  plugins: [new HtmlWebpackPlugin()]
 };

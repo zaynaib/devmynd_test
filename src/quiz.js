@@ -1,102 +1,86 @@
 //setup dependices
-import $ from "jquery";
 const data = require("./data.json");
 
-//https://stackoverflow.com/questions/46270587/webpack-dev-server-runs-twice/46478898
+const shuffleArray = array =>
+  array
+    .map(a => [Math.random(), a])
+    .sort((a, b) => a[0] - b[0])
+    .map(a => a[1]);
 
 //property: keep track of users points
 let points = 0;
 
 //getter for points property
-function getPoints(){
+function getPoints() {
   return points;
 }
 
 //setter for points property
-function updatePoints(){
+function updatePoints() {
   points += 1;
 }
 
-function createQuestions(triviaQuestion,formElement,questionEvent){
-  var input = document.createElement('input');
-  input.addEventListener('click',questionEvent);
-
-  var label = document.createElement('label');
-  label.innerHTML = (`${triviaQuestion}<br>`)
-  
-
-  input.setAttribute('type', 'radio');
-  input.setAttribute('value',`${triviaQuestion}`);
-
-  //add each label and input to the form
-  formElement.appendChild(input);
-  formElement.appendChild(label);
-
-  return input;
-
+function createAnswer(triviaAnswer, index) {
+  const label = document.createElement("label");
+  label.addEventListener("click", uclicked);
+  label.innerHTML = `<input type="radio" value="${triviaAnswer}" name="group-${index}"> ${triviaAnswer}`;
+  return label;
 }
 
 //creates + appends html elements for each question in data.json
-function renderQuestion(question){
-  let groupNumber = 0;
-  let groupName = `group${groupNumber}`;
-
+function renderQuestion(question, index) {
   //create form for questions
-  const form = document.createElement('div');
+  const form = document.createElement("div");
   document.body.appendChild(form);
 
-  //create div element for question
-  const element = document.createElement('div');
-  element.innerHTML =(`<h2>${question.question}</h2>`);
+  //create div questionHeader for question
+  const questionHeader = document.createElement("h2");
+  questionHeader.innerHTML = `${question.question}`;
+  form.appendChild(questionHeader);
 
-  //loop through each incorrect answer add event listener, label,input attributes
-  question.incorrect.forEach(q => {
-    let incorrectInput = createQuestions(q,form,uclicked);
-    incorrectInput.setAttribute("name",groupName)
-
+  //loop through each answers, add event listener, label, input attributes
+  const answers = question.answers.map((q, aIndex) => {
+    const answerLabel = createAnswer(q, index);
+    if (aIndex === question.correct) {
+      answerLabel.classList.add("correct");
+    }
+    return answerLabel;
   });
 
-  //correct questions
-  let input = createQuestions(question.correct,form,uclicked);
-  input.setAttribute("name",groupName);
-  input.classList.add("correct");
-  
-
-  groupNumber +=1;
-
-  //append last question
-  element.appendChild(form);
-  document.body.appendChild(element);
-
-
+  shuffleArray(answers).forEach(answer => form.appendChild(answer));
+  document.body.appendChild(form);
 }
 
 // click function for each answer keeps tracks of points and css styles to signify to the user if choice is right or wrong
 function uclicked() {
-
-  if(this.classList.value){
-   
+  if (this.classList.contains("correct")) {
+    const answerInput = this.querySelector("input");
     updatePoints();
-    let elePoints = document.getElementById("game-points").innerHTML = `Your Score is ${points}`;
-    let answerLabel = $(this).next().get(0);
-    answerLabel.classList.add("correct-answer");
+    document.getElementById(
+      "game-points"
+    ).innerHTML = `Your Score is ${points}`;
+    this.classList.add("correct-answer");
+    this.querySelector("input").checked = true;
+    document.querySelectorAll(`[name="${answerInput.name}"]`).forEach(el => {
+      el.parentElement.removeEventListener("click", uclicked);
+      el.disabled = true;
+    });
+  } else {
+    this.classList.add("wrong-answer");
   }
-  else{
-    let answerLabel = $(this).next()[0];
-    answerLabel.classList.add("wrong-answer");
-  }
-
 }
 
 //uclicked function to be in the global scope
 window.uclicked = uclicked;
 
 // question each question in the dom
-function setup(jsonData){
-  jsonData.forEach(ele => {renderQuestion(ele)});
-
+function setup(jsonData) {
+  const gamePointsEl = document.createElement("span");
+  gamePointsEl.setAttribute("id", "game-points");
+  document.body.appendChild(gamePointsEl);
+  jsonData.forEach((ele, index) => {
+    renderQuestion(ele, index);
+  });
 }
 
-
-
-export {data,setup};
+export { data, setup };
